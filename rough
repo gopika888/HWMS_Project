@@ -1,0 +1,100 @@
+<section class="ftco-section contact-section">
+  <div class="container">
+    
+    <div class="row block-9 no-gutters">
+      <div class="col-lg-6 order-md-last d-flex">
+        <form action="secaction.php" method="post" onsubmit="return check();" class="bg-light p-5 contact-form">
+          <div class="form-group">
+            <input type="number" name="rno" class="form-control" require id="" placeholder="Residence Number">
+          </div>
+         
+          <div class="form-group">
+            <input type="text" name="rname" class="form-control" required placeholder="Residence Name">
+          </div>
+         
+          <div class="form-group">
+            <textarea  type="number" name="pincode" id="" cols="30" rows="7" class="form-control" placeholder="Pincode"></textarea>
+          </div>
+
+          <div class="form-group">
+            <textarea type="number" name="phno" id="" cols="30" rows="7" class="form-control" placeholder="Phone number"></textarea>
+          </div>
+
+          <div class="form-group">
+            <textarea type="number" name="amnt" id="" cols="30" rows="7" class="form-control" placeholder="Amount"></textarea>
+          </div>
+        
+          <div class="form-group">
+            <input type="submit" value="ADD" class="btn btn-primary py-3 px-5" name="submit">
+          </div>
+         
+        </form>
+     
+      </div>
+
+      <!-- <div class="col-lg-6 d-flex">
+    
+      </div> -->
+    </div>
+    <table>
+        <tr>
+            <th>Residence No. </th>
+            <th>Residence name</th>
+            <th>Pincode</th>
+            <th>Phone number</th>
+            <th>Amount</th>
+            <th>ACTION</th>
+        </tr>
+        <?php
+        include 'dbconnection.php';
+        $sq=mysqli_query($con,"select * from tbl_residence");
+        while($a=mysqli_fetch_array($sq))
+        {
+        ?>
+        <tr>
+            <td><?php echo $a['rno'];?></td>
+            <td><?php echo $a['rname'];?></td>
+            <td><?php echo $a['pincode'];?></td>
+            <td><?php echo $a['phno'];?></td>
+            <td><?php echo $a['amnt'];?></td>
+            <td><a href="idel.php?id=<?php echo $a['id'];?>" style="color:red; font-size:18px; font-weight:bold;">Delete</a></td>
+        </tr>    
+        <?php
+        }
+        ?>
+     </table>
+  </div>
+
+</section>
+<script>
+function check()
+{
+    var letters=/^[A-Za-z]+$/; 
+    var numbers=/^[0-9]+$/;
+    if(!document.getElementById("name").value.match(letters))
+    {
+        alert('Input Alphabets for name!!!');
+        return false;
+    }
+    else if(!document.getElementById("place").value.match(letters))
+    {
+        alert('Input Alphabets for place !!');
+        return false;
+    }
+    else if(!document.getElementById("pincode").value.match(numbers))
+    {
+      alert('Input Numbers for Pincode');
+      return false;
+    }
+    else if(!document.getElementById("cno").value.match(numbers))
+    {
+      alert('Input digits for contact');
+      return false;
+    }
+    
+    else
+    {
+        return true;
+    }
+}
+</script>
