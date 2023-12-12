@@ -73,7 +73,7 @@
               <a class="btn btn-outline-light" href="login.php">Login</a>
             </li>
             <li class="nav-but">
-              <a class="btn btn-outline-light" href="user.php">Register</a>
+              <a class="btn btn-outline-light" href="userhome.php">Register</a>
             </li>
           </ul>
         </div>
@@ -203,3 +203,5 @@
 
 
 </html>
+
+

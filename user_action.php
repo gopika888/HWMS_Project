@@ -15,10 +15,18 @@ if($e==$em)
 else
 {
     $sql=mysqli_query($con,"insert into tbl_user(name,email,cono,address,password)values('$n','$e','$c','$adr','$ps')");
-    $q=mysqli_query($con,"select max(usid) as uid from tbl_user");
+    $q=mysqli_query($con,"select usid as uid from tbl_user");
     $rt=mysqli_fetch_array($q);
     $uid=$rt['uid'];
     $sq=mysqli_query($con,"insert into tbl_login(uid,uname,upass,utype)values('$uid','$e','$ps','User')");
-    echo "<script>alert('Successfully Registered');window.location='login.php';</script>";
+    echo "<script> alert('Successfully Registered');window.location='login.php';</script>";
 }
 ?>
+
+
+<!-- $sql=mysqli_query($con,"insert into tbl_user(name,email,cono,address,password)values('$n','$e','$c','$adr','$ps')");
+    $q=mysqli_query($con,"select max(usid) as uid from tbl_user");
+    $rt=mysqli_fetch_array($q);
+    $uid=$rt['usid'];
+    $sq=mysqli_query($con,"insert into tbl_login(uid,uname,upass,utype)values('$uid','$e','$ps','User')");
+    echo "<script>alert('Successfully Registered');window.location='login.php';</script>"; -->
